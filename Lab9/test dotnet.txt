@@ -1,0 +1,5 @@
+dotnet test Lab9.dll
+
+D:\3k1s\MyLabs\TPO\Lab9\bin\Debug\net6.0
+
+http://localhost:8080/job/lab9

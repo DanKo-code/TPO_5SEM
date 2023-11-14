@@ -48,10 +48,10 @@ namespace Lab9
             search.SendKeys(Keys.Enter);
 
 
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
             Assert.AreEqual(driver.Title, "футболка");
 
-            Thread.Sleep(20000);
+            Thread.Sleep(2000);
         }
     }
 }
