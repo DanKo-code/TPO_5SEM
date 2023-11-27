@@ -27,6 +27,8 @@ namespace MyWebSiteCaseTests.Tests
             wildPage.Exit();
 
             Assert.AreEqual(searchResult, "футболка");
+
+            Thread.Sleep(2000);
         }
 
         [Test]
@@ -40,6 +42,8 @@ namespace MyWebSiteCaseTests.Tests
 
             wildPage.ClickButton(By.XPath("//*[@id=\"route-content\"]/div/section[1]/div/div[1]/div[1]"));
 
+            Thread.Sleep(3000);
+
             bool existElement = wildPage.checkExistanceElement(By.XPath("//*[@id=\"route-content\"]/div/div[1]/div[1]/div[4]/div/div[2]/section[4]/div/div"));
 
 
@@ -48,6 +52,8 @@ namespace MyWebSiteCaseTests.Tests
             wildPage.Exit();
 
             Assert.IsTrue(existElement, "Элемент не найден");
+
+            Thread.Sleep(2000);
         }
     }
 }
