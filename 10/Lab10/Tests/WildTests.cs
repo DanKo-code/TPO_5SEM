@@ -23,7 +23,7 @@ namespace MyWebSiteCaseTests.Tests
 
             string searchResult = wildPage.GetSearchResult();
 
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
             wildPage.Exit();
 
             Assert.AreEqual(searchResult, "футболка");
@@ -44,7 +44,7 @@ namespace MyWebSiteCaseTests.Tests
 
 
 
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
             wildPage.Exit();
 
             Assert.IsTrue(existElement, "Элемент не найден");
