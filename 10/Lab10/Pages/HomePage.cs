@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,9 @@ namespace MyWebSiteCaseTests.Pages
             IWebElement elem = driver.FindElement(locator);
 
             Thread.Sleep(3000);
+
+            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            //IWebElement elem = wait.Until(ExpectedConditions.ElementToBeClickable(locator));
 
             elem.Click();
         }

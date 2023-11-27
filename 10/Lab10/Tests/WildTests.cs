@@ -34,19 +34,13 @@ namespace MyWebSiteCaseTests.Tests
         [Test]
         public void checkCommentsContainer()
         {
-            HomePage wildPage = new HomePage(new ChromeDriver());
+            ProductPage wildPage = new ProductPage(new ChromeDriver());
 
             wildPage.GoToPage();
 
             Thread.Sleep(5000);
 
-            wildPage.ClickButton(By.XPath("//*[@id=\"route-content\"]/div/section[1]/div/div[1]/div[1]"));
-
-            Thread.Sleep(3000);
-
             bool existElement = wildPage.checkExistanceElement(By.XPath("//*[@id=\"route-content\"]/div/div[1]/div[1]/div[4]/div/div[2]/section[4]/div/div"));
-
-
 
             Thread.Sleep(3000);
             wildPage.Exit();
