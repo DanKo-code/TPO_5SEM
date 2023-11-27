@@ -17,7 +17,13 @@ namespace MyWebSiteCaseTests.Pages
 
         public void ClickButton(By locator)
         {
-            driver.FindElement(locator).Click();
+
+            
+            IWebElement elem = driver.FindElement(locator);
+
+            Thread.Sleep(3000);
+
+            elem.Click();
         }
 
         public void WriteAndEnterInput(By locator, string data)
