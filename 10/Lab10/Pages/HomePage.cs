@@ -174,7 +174,7 @@ namespace MyWebSiteCaseTests.Pages
 
         public string ClickAddToCartButton()
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             driver.FindElement(By.XPath("//*[@id=\"route-content\"]/div/section/div/div[1]/div/div[1]/div[1]/div/div/button")).Click();
 
             /*try
