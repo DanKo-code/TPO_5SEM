@@ -1,3 +1,4 @@
+using Lab10.Pages;
 using MyWebSiteCaseTests.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -8,23 +9,183 @@ namespace MyWebSiteCaseTests.Tests
     public class WildTests
     {
         [Test]
-        public void SwitchProductTest()
+        public void TestGoPurchaseButton()
         {
-            HomePage wildPage = new HomePage(new ChromeDriver());
+            var chrDriver = new ChromeDriver();
+
+            HomePage wildPage = new HomePage(chrDriver);
+            CartPage cartPage = new CartPage(chrDriver);
 
             wildPage.GoToPage();
 
+            wildPage.ClickCurtButton();
+            wildPage.clickGoPurchaseButton();
+            bool res = wildPage.isCurrentPageHome();
+
+            Assert.IsTrue(res, "Страница не соответствует");
+
+            wildPage.Exit();
+        }
+
+        [Test]
+        public void TestCarouselSequence()
+        {
+            var chrDriver = new ChromeDriver();
+
+            HomePage wildPage = new HomePage(chrDriver);
+
+            wildPage.GoToPage();
+
+            string imgName = wildPage.getCurrentCarouselName();
+            wildPage.switchCarouselRight();
+            wildPage.switchCarouselLeft();
+
+            bool res = wildPage.isCarouselSequenceFollowed(imgName);
+
+            Assert.IsTrue(res, "Название не соответствует");
+
+            wildPage.Exit();
+        }
+
+        [Test]
+        public void TestScrollTopButton()
+        {
+            var chrDriver = new ChromeDriver();
+
+            HomePage wildPage = new HomePage(chrDriver);
+
+            wildPage.GoToPage();
+
+            wildPage.scrollToBottom();
+            wildPage.canselCookies();
+            wildPage.clickGoTopButton();
+            bool res = wildPage.isWeOnTheTop();
+
+            Assert.IsTrue(res, "Название не соответствует");
+
+            wildPage.Exit();
+        }
+
+        [Test]
+        public void TestCellSearch()
+        {
+            var chrDriver = new ChromeDriver();
+
+            HomePage wildPage = new HomePage(chrDriver);
+
+            wildPage.GoToPage();
+
+            string catalogName = wildPage.selectSearchCell();
+
+            bool res = wildPage.isCellSearchCorrect(catalogName);
+
+            Assert.IsTrue(res, "Название не соответствует");
+
+            wildPage.Exit();
+        }
+
+        [Test]
+        public void TestCurrencyChanged()
+        {
+            var chrDriver = new ChromeDriver();
+
+            HomePage wildPage = new HomePage(chrDriver);
+
+            wildPage.GoToPage();
+
+            wildPage.changeCurrency();
+
+            Thread.Sleep(3000);
+
+            bool res = wildPage.isCurrencyChanged();
+
+            Assert.IsTrue(res, "Название не соответствует");
+
+            wildPage.Exit();
+        }
+
+        [Test]
+        public void TestProductFustShowing()
+        {
+            var chrDriver = new ChromeDriver();
+
+            HomePage wildPage = new HomePage(chrDriver);
+
+            wildPage.GoToPage();
+
+            wildPage.canselCookies();
+
+            string productName = wildPage.ClickProductFustShowingButton();
+
+            bool res = wildPage.equalFastModalNameWithProductName(productName);
+
+            Assert.IsTrue(res, "Название не соответствует");
+
+            wildPage.Exit();
+        }
+
+        [Test]
+        public void TestAddItemToCurt()
+        {
+            var chrDriver = new ChromeDriver();
+
+            HomePage wildPage = new HomePage(chrDriver);
+            CartPage cartPage = new CartPage(chrDriver);
+
+            wildPage.GoToPage();
+
+            wildPage.canselCookies();
+
+            string productName = wildPage.ClickAddToCartButton();
+
+            wildPage.ClickCurtButton();
+
+            bool res = cartPage.isCartProductExists(productName);
+
+            Assert.IsTrue(res, "Элемент не найден");
+
+            wildPage.Exit();
+        }
+
+        [Test]
+        public void TestAddItemToFavorite()
+        {
+            var chrDriver = new ChromeDriver();
+
+            HomePage wildPage = new HomePage(chrDriver);
+            FavouritesPage favourPage = new FavouritesPage(chrDriver);
+
+            wildPage.GoToPage();
+
+            string productName = wildPage.ClickLikeButton();
+
+            wildPage.ClickfavouritesButton();
+
+            bool res = favourPage.isFavouritProductExists(productName);
+
+            Assert.IsTrue(res, "Элемент не найден");
+
+            wildPage.Exit();
+        }
+
+        [Test]
+        public void switchproducttest()
+        {
+            HomePage wildpage = new HomePage(new ChromeDriver());
+
+            wildpage.GoToPage();
+
             Thread.Sleep(5000);
 
-            wildPage.SearchProduct("Футболка");
+            wildpage.SearchProduct("футболка");
 
 
             Thread.Sleep(3000);
 
-            string searchResult = wildPage.GetSearchResult();
+            string searchResult = wildpage.GetPageTitle();
 
             Thread.Sleep(3000);
-            wildPage.Exit();
+            wildpage.Exit();
 
             Assert.AreEqual(searchResult, "футболка");
 
@@ -40,7 +201,7 @@ namespace MyWebSiteCaseTests.Tests
 
             Thread.Sleep(5000);
 
-            bool existElement = wildPage.checkExistanceElement(By.XPath("//*[@id=\"route-content\"]/div/div[1]/div[1]/div[4]/div/div[2]/section[4]/div/div"));
+            bool existElement = wildPage.СheckExistanceElement(By.XPath("//*[@id=\"route-content\"]/div/div[1]/div[1]/div[4]/div/div[2]/section[4]/div/div"));
 
             Thread.Sleep(3000);
             wildPage.Exit();

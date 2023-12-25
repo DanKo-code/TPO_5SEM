@@ -16,7 +16,7 @@ namespace MyWebSiteCaseTests.Pages
 
         ///////////////////////////////////////////////////////
 
-        public bool checkExistanceElement(By locator)
+        public bool СheckExistanceElement(By locator)
         {
             return driver.FindElement(locator) != null;
         }

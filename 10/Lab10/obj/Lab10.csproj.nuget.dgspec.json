@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[17.3.2, )"
             },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
             "NUnit": {
               "target": "Package",
               "version": "[3.13.3, )"
@@ -59,6 +63,10 @@
             "Selenium.WebDriver": {
               "target": "Package",
               "version": "[4.15.0, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[3.1.1, )"
             },
             "coverlet.collector": {
               "target": "Package",

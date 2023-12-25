@@ -105,3 +105,5 @@ D:\3k1s\MyLabs\TPO\10\Lab10\obj\Debug\net6.0\refint\Lab10.dll
 D:\3k1s\MyLabs\TPO\10\Lab10\obj\Debug\net6.0\Lab10.pdb
 D:\3k1s\MyLabs\TPO\10\Lab10\obj\Debug\net6.0\Lab10.genruntimeconfig.cache
 D:\3k1s\MyLabs\TPO\10\Lab10\obj\Debug\net6.0\ref\Lab10.dll
+D:\3k1s\MyLabs\TPO\10\Lab10\bin\Debug\net6.0\NLog.dll
+D:\3k1s\MyLabs\TPO\10\Lab10\bin\Debug\net6.0\Serilog.dll
