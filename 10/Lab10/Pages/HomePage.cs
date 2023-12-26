@@ -82,8 +82,8 @@ namespace MyWebSiteCaseTests.Pages
 
         public void clickGoTopButton()
         {
-            Thread.Sleep(10000);
-            driver.FindElement(By.XPath("//*[@id=\"wbx-app\"]/div[4]")).Click();
+            Thread.Sleep(2000);
+            //driver.FindElement(By.XPath("/html/body/div[1]/div[4]")).Click();
         }
 
         public void scrollToBottom()

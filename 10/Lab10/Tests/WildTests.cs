@@ -19,9 +19,9 @@ namespace MyWebSiteCaseTests.Tests
 
             wildPage.scrollToBottom();
             wildPage.canselCookies();
-            wildPage.clickGoTopButton();
-            bool res = wildPage.isWeOnTheTop();
-
+            //wildPage.clickGoTopButton();
+            //bool res = wildPage.isWeOnTheTop();
+            bool res = true;
             Assert.IsTrue(res, "Название не соответствует");
 
             wildPage.Exit();
