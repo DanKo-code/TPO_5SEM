@@ -82,7 +82,7 @@ namespace MyWebSiteCaseTests.Pages
 
         public void clickGoTopButton()
         {
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
             driver.FindElement(By.XPath("//*[@id=\"wbx-app\"]/div[4]")).Click();
         }
 
