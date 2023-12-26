@@ -69,13 +69,13 @@ namespace MyWebSiteCaseTests.Pages
 
         public void canselCookies()
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             driver.FindElement(By.XPath("//*[@id=\"wbx-app\"]/div[6]/div/div/div/div/div/div[2]/button[2]")).Click();
         }
 
         public bool isWeOnTheTop()
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             return (bool)js.ExecuteScript("return window.scrollY === 0;");
         }
@@ -88,7 +88,7 @@ namespace MyWebSiteCaseTests.Pages
 
         public void scrollToBottom()
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             // Прокрутка в самый низ
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
