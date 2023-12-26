@@ -186,7 +186,7 @@ namespace MyWebSiteCaseTests.Pages
                 //TODO Add log msg // · Экстракт монарды СО2
             }*/
 
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             string originalString = driver.FindElement(By.XPath("//*[@id=\"route-content\"]/div/section/div/div[1]/div/div[1]/div[1]/div/a/div[2]/div[3]/span[2]")).Text;
 
             return deleteExtraProductNameSymbols(originalString);

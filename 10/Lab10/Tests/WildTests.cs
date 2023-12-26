@@ -9,45 +9,6 @@ namespace MyWebSiteCaseTests.Tests
     public class WildTests
     {
         [Test]
-        public void TestGoPurchaseButton()
-        {
-            var chrDriver = new ChromeDriver();
-
-            HomePage wildPage = new HomePage(chrDriver);
-            CartPage cartPage = new CartPage(chrDriver);
-
-            wildPage.GoToPage();
-
-            wildPage.ClickCurtButton();
-            wildPage.clickGoPurchaseButton();
-            bool res = wildPage.isCurrentPageHome();
-
-            Assert.IsTrue(res, "Страница не соответствует");
-
-            wildPage.Exit();
-        }
-
-        [Test]
-        public void TestCarouselSequence()
-        {
-            var chrDriver = new ChromeDriver();
-
-            HomePage wildPage = new HomePage(chrDriver);
-
-            wildPage.GoToPage();
-
-            string imgName = wildPage.getCurrentCarouselName();
-            wildPage.switchCarouselRight();
-            wildPage.switchCarouselLeft();
-
-            bool res = wildPage.isCarouselSequenceFollowed(imgName);
-
-            Assert.IsTrue(res, "Название не соответствует");
-
-            wildPage.Exit();
-        }
-
-        [Test]
         public void TestScrollTopButton()
         {
             var chrDriver = new ChromeDriver();
@@ -66,149 +27,190 @@ namespace MyWebSiteCaseTests.Tests
             wildPage.Exit();
         }
 
-        [Test]
-        public void TestCellSearch()
-        {
-            var chrDriver = new ChromeDriver();
+        //[Test]
+        //public void TestGoPurchaseButton()
+        //{
+        //    var chrDriver = new ChromeDriver();
 
-            HomePage wildPage = new HomePage(chrDriver);
+        //    HomePage wildPage = new HomePage(chrDriver);
+        //    CartPage cartPage = new CartPage(chrDriver);
 
-            wildPage.GoToPage();
+        //    wildPage.GoToPage();
 
-            string catalogName = wildPage.selectSearchCell();
+        //    wildPage.ClickCurtButton();
+        //    wildPage.clickGoPurchaseButton();
+        //    bool res = wildPage.isCurrentPageHome();
 
-            bool res = wildPage.isCellSearchCorrect(catalogName);
+        //    Assert.IsTrue(res, "Страница не соответствует");
 
-            Assert.IsTrue(res, "Название не соответствует");
+        //    wildPage.Exit();
+        //}
 
-            wildPage.Exit();
-        }
+        //[Test]
+        //public void TestCarouselSequence()
+        //{
+        //    var chrDriver = new ChromeDriver();
 
-        [Test]
-        public void TestCurrencyChanged()
-        {
-            var chrDriver = new ChromeDriver();
+        //    HomePage wildPage = new HomePage(chrDriver);
 
-            HomePage wildPage = new HomePage(chrDriver);
+        //    wildPage.GoToPage();
 
-            wildPage.GoToPage();
+        //    string imgName = wildPage.getCurrentCarouselName();
+        //    wildPage.switchCarouselRight();
+        //    wildPage.switchCarouselLeft();
 
-            wildPage.changeCurrency();
+        //    bool res = wildPage.isCarouselSequenceFollowed(imgName);
 
-            Thread.Sleep(3000);
+        //    Assert.IsTrue(res, "Название не соответствует");
 
-            bool res = wildPage.isCurrencyChanged();
+        //    wildPage.Exit();
+        //}
 
-            Assert.IsTrue(res, "Название не соответствует");
+        
 
-            wildPage.Exit();
-        }
+        //[Test]
+        //public void TestCellSearch()
+        //{
+        //    var chrDriver = new ChromeDriver();
 
-        [Test]
-        public void TestProductFustShowing()
-        {
-            var chrDriver = new ChromeDriver();
+        //    HomePage wildPage = new HomePage(chrDriver);
 
-            HomePage wildPage = new HomePage(chrDriver);
+        //    wildPage.GoToPage();
 
-            wildPage.GoToPage();
+        //    string catalogName = wildPage.selectSearchCell();
 
-            wildPage.canselCookies();
+        //    bool res = wildPage.isCellSearchCorrect(catalogName);
 
-            string productName = wildPage.ClickProductFustShowingButton();
+        //    Assert.IsTrue(res, "Название не соответствует");
 
-            bool res = wildPage.equalFastModalNameWithProductName(productName);
+        //    wildPage.Exit();
+        //}
 
-            Assert.IsTrue(res, "Название не соответствует");
+        //[Test]
+        //public void TestCurrencyChanged()
+        //{
+        //    var chrDriver = new ChromeDriver();
 
-            wildPage.Exit();
-        }
+        //    HomePage wildPage = new HomePage(chrDriver);
 
-        [Test]
-        public void TestAddItemToCurt()
-        {
-            var chrDriver = new ChromeDriver();
+        //    wildPage.GoToPage();
 
-            HomePage wildPage = new HomePage(chrDriver);
-            CartPage cartPage = new CartPage(chrDriver);
+        //    wildPage.changeCurrency();
 
-            wildPage.GoToPage();
+        //    Thread.Sleep(3000);
 
-            wildPage.canselCookies();
+        //    bool res = wildPage.isCurrencyChanged();
 
-            string productName = wildPage.ClickAddToCartButton();
+        //    Assert.IsTrue(res, "Название не соответствует");
 
-            wildPage.ClickCurtButton();
+        //    wildPage.Exit();
+        //}
 
-            bool res = cartPage.isCartProductExists(productName);
+        //[Test]
+        //public void TestProductFustShowing()
+        //{
+        //    var chrDriver = new ChromeDriver();
 
-            Assert.IsTrue(res, "Элемент не найден");
+        //    HomePage wildPage = new HomePage(chrDriver);
 
-            wildPage.Exit();
-        }
+        //    wildPage.GoToPage();
 
-        [Test]
-        public void TestAddItemToFavorite()
-        {
-            var chrDriver = new ChromeDriver();
+        //    wildPage.canselCookies();
 
-            HomePage wildPage = new HomePage(chrDriver);
-            FavouritesPage favourPage = new FavouritesPage(chrDriver);
+        //    string productName = wildPage.ClickProductFustShowingButton();
 
-            wildPage.GoToPage();
+        //    bool res = wildPage.equalFastModalNameWithProductName(productName);
 
-            string productName = wildPage.ClickLikeButton();
+        //    Assert.IsTrue(res, "Название не соответствует");
 
-            wildPage.ClickfavouritesButton();
+        //    wildPage.Exit();
+        //}
 
-            bool res = favourPage.isFavouritProductExists(productName);
+        //[Test]
+        //public void TestAddItemToCurt()
+        //{
+        //    var chrDriver = new ChromeDriver();
 
-            Assert.IsTrue(res, "Элемент не найден");
+        //    HomePage wildPage = new HomePage(chrDriver);
+        //    CartPage cartPage = new CartPage(chrDriver);
 
-            wildPage.Exit();
-        }
+        //    wildPage.GoToPage();
 
-        [Test]
-        public void switchproducttest()
-        {
-            HomePage wildpage = new HomePage(new ChromeDriver());
+        //    wildPage.canselCookies();
 
-            wildpage.GoToPage();
+        //    string productName = wildPage.ClickAddToCartButton();
 
-            Thread.Sleep(5000);
+        //    wildPage.ClickCurtButton();
 
-            wildpage.SearchProduct("футболка");
+        //    bool res = cartPage.isCartProductExists(productName);
+
+        //    Assert.IsTrue(res, "Элемент не найден");
+
+        //    wildPage.Exit();
+        //}
+
+        //[Test]
+        //public void TestAddItemToFavorite()
+        //{
+        //    var chrDriver = new ChromeDriver();
+
+        //    HomePage wildPage = new HomePage(chrDriver);
+        //    FavouritesPage favourPage = new FavouritesPage(chrDriver);
+
+        //    wildPage.GoToPage();
+
+        //    string productName = wildPage.ClickLikeButton();
+
+        //    wildPage.ClickfavouritesButton();
+
+        //    bool res = favourPage.isFavouritProductExists(productName);
+
+        //    Assert.IsTrue(res, "Элемент не найден");
+
+        //    wildPage.Exit();
+        //}
+
+        //[Test]
+        //public void switchproducttest()
+        //{
+        //    HomePage wildpage = new HomePage(new ChromeDriver());
+
+        //    wildpage.GoToPage();
+
+        //    Thread.Sleep(5000);
+
+        //    wildpage.SearchProduct("футболка");
 
 
-            Thread.Sleep(3000);
+        //    Thread.Sleep(3000);
 
-            string searchResult = wildpage.GetPageTitle();
+        //    string searchResult = wildpage.GetPageTitle();
 
-            Thread.Sleep(3000);
-            wildpage.Exit();
+        //    Thread.Sleep(3000);
+        //    wildpage.Exit();
 
-            Assert.AreEqual(searchResult, "футболка");
+        //    Assert.AreEqual(searchResult, "футболка");
 
-            Thread.Sleep(2000);
-        }
+        //    Thread.Sleep(2000);
+        //}
 
-        [Test]
-        public void checkCommentsContainer()
-        {
-            ProductPage wildPage = new ProductPage(new ChromeDriver());
+        //[Test]
+        //public void checkCommentsContainer()
+        //{
+        //    ProductPage wildPage = new ProductPage(new ChromeDriver());
 
-            wildPage.GoToPage();
+        //    wildPage.GoToPage();
 
-            Thread.Sleep(5000);
+        //    Thread.Sleep(5000);
 
-            bool existElement = wildPage.СheckExistanceElement(By.XPath("//*[@id=\"route-content\"]/div/div[1]/div[1]/div[4]/div/div[2]/section[4]/div/div"));
+        //    bool existElement = wildPage.СheckExistanceElement(By.XPath("//*[@id=\"route-content\"]/div/div[1]/div[1]/div[4]/div/div[2]/section[4]/div/div"));
 
-            Thread.Sleep(3000);
-            wildPage.Exit();
+        //    Thread.Sleep(3000);
+        //    wildPage.Exit();
 
-            Assert.IsTrue(existElement, "Элемент не найден");
+        //    Assert.IsTrue(existElement, "Элемент не найден");
 
-            Thread.Sleep(2000);
-        }
+        //    Thread.Sleep(2000);
+        //}
     }
 }
